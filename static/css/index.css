@@ -1,0 +1,21 @@
+#piano {
+    height: 1080px;
+}
+
+svg{
+    position: absolute;
+    top: 0px;
+    right : 0px;
+}
+
+body {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-image: url('../bg_img.jpg');
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
