@@ -3,7 +3,6 @@ let _rate = 1;
 let _volume = 0.1;
 
 let piano = new Howl({
-    // 參數設定[註1]
     src: musicArr[0],
     autoplay: true,
     loop: true,
@@ -14,7 +13,6 @@ let piano = new Howl({
     }
 });
 let cello = new Howl({
-    // 參數設定[註1]
     src: musicArr[1],
     autoplay: true,
     loop: true,
@@ -25,7 +23,6 @@ let cello = new Howl({
     }
 });
 // let drum = new Howl({
-//     // 參數設定[註1]
 //     src: musicArr[2],
 //     autoplay: true,
 //     loop: true,
@@ -42,8 +39,8 @@ function piano_vol(vol) {
         // drum_anim.pause();
         // cello_anim.pause();
     }
-    // cello_anim.setSpeed(vol);
-    // drum_anim.setSpeed(vol);
+    cello_anim.setSpeed(vol);
+    drum_anim.setSpeed(vol);
     cello.volume(vol);
     console.log(vol);
 }

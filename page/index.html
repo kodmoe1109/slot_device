@@ -59,6 +59,13 @@
     //         path: '../static/animate/' + el + '/' + el + '.json',
     //     })
     // })
+    const saxophone_anim = lottie.loadAnimation({
+        container: document.getElementById('canva'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: false,
+        path: '../static/animate/saxophone/saxophone.json',
+    })
     const piano_anim = lottie.loadAnimation({
         container: document.getElementById('canva'),
         renderer: 'svg',
@@ -73,14 +80,6 @@
         autoplay: false,
         path: '../static/animate/drum/drum.json',
     })
-    const saxophone_anim = lottie.loadAnimation({
-        container: document.getElementById('canva'),
-        renderer: 'svg',
-        loop: true,
-        autoplay: false,
-        path: '../static/animate/saxophone/saxophone.json',
-    })
-    
     const cello_anim = lottie.loadAnimation({
         container: document.getElementById('canva'),
         renderer: 'svg',
@@ -90,12 +89,12 @@
     })
 
     window.onload = function () {
-        // piano_anim.play();
-        // drum_anim.play();
+        piano_anim.play();
+        drum_anim.play();
         // saxophone_anim.play();
-        // cello_anim.play();
-        setTimeout(function(){
-            cello_anim.play()
-        },4000)
+        cello_anim.play();
+        // setTimeout(function(){
+        //     cello_anim.play()
+        // },4000)
     }
 </script>
