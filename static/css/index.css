@@ -12,8 +12,11 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    background-size: cover;
-    background-image: url('../bg_img.jpg');
+    /* background-size: cover;  */
+    background-size: 1300px;
+    background-image: url('../bg_img1.jpg');
+    background-color: black;
+    /* background-position: 300px; */
 }
 
 body::-webkit-scrollbar {
