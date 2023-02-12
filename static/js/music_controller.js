@@ -33,14 +33,11 @@ let cello = new Howl({
 //     }
 // });
 
-function piano_vol(vol) {
+function cello_vol(vol) {
     if(vol<0) {
         vol = 0;
-        // drum_anim.pause();
-        // cello_anim.pause();
     }
     cello_anim.setSpeed(vol);
-    drum_anim.setSpeed(vol);
     cello.volume(vol);
     console.log(vol);
 }
