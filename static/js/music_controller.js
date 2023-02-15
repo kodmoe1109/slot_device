@@ -1,5 +1,7 @@
 const musicArr = ["../static/music/piano.wav","../static/music/drum.wav"];
 const saxoArr = ["../static/music/saxo2_0.wav","../static/music/saxo2_1.wav","../static/music/saxo2_2.wav","../static/music/saxo2_3.wav","../static/music/saxo2_4.wav","../static/music/saxo2_5.wav",]
+const celloArr = ["../static/music/bass1.wav","../static/music/bass2.wav","../static/music/bass3.wav"]
+const drumArr = ["../static/music/drum1.wav","../static/music/drum2.wav","../static/music/drum3.wav"]
 let _rate = 1;
 let _volume = 0.1;
 
