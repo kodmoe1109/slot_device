@@ -129,15 +129,19 @@ function drum_vol(val) {
     console.log(val);
     switch(val){
         case 1:
+            drum_anim.play();
             drum0.volume(1);
             break;
         case 2:
+            drum_anim.play();
             drum1.volume(1);
             break;
         case 3:
+            drum_anim.play();
             drum2.volume(1);
             break;
         default:
+            drum_anim.pause();
             drum0.volume(0);
             drum1.volume(0);
             drum2.volume(0);
@@ -147,23 +151,31 @@ function saxo_vol(val){
     // console.log(val);
     switch(val){
         case 1:
+            saxo_anim.play();
             saxo0.play();
             break;
         case 2:
+            saxo_anim.play();
             saxo1.play();
             break;
         case 3:
+            saxo_anim.play();
             saxo2.play();
             break;
         case 4:
+            saxo_anim.play();
             saxo3.play();
             break;
         case 5:
+            saxo_anim.play();
             saxo4.play();
             break;
         case 6:
+            saxo_anim.play();
             saxo5.play();
             break;
+        default:
+            saxo_anim.pause();
     }
 }
 
