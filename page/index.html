@@ -45,20 +45,12 @@
     const router = ref(db, "/");
     onValue(router, (el) => {
         cello_vol(el.val()['cello_val']);
+        saxo_vol(el.val()['saxo_val']);
+        drum_vol(el.val()['drum_val']);
     })
 
 </script>
 <script type="text/javascript">
-    // const music_arr = ["saxophone", "piano", "drum", "cello"]
-    // music_arr.forEach(el => {
-    //     el = lottie.loadAnimation({
-    //         container: document.getElementById('canva'),
-    //         renderer: 'svg',
-    //         loop: true,
-    //         autoplay: false,
-    //         path: '../static/animate/' + el + '/' + el + '.json',
-    //     })
-    // })
     const saxophone_anim = lottie.loadAnimation({
         container: document.getElementById('canva'),
         renderer: 'svg',

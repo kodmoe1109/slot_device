@@ -1,45 +1,62 @@
-const musicArr = ["../static/music/piano.wav","../static/music/drum.wav"];
+const musicArr = ["../static/music/piano.wav"];
 const saxoArr = ["../static/music/saxo2_0.wav","../static/music/saxo2_1.wav","../static/music/saxo2_2.wav","../static/music/saxo2_3.wav","../static/music/saxo2_4.wav","../static/music/saxo2_5.wav",]
 const celloArr = ["../static/music/bass1.wav","../static/music/bass2.wav","../static/music/bass3.wav"]
 const drumArr = ["../static/music/drum1.wav","../static/music/drum2.wav","../static/music/drum3.wav"]
 let _rate = 1;
-let _volume = 0.1;
+let _volume = 0.5;
 
 Howler.autoUnlock = false;
 //-----------------------------OK-------------------------------
-let piano = new Howl({
-    src: musicArr[0],
+// let piano = new Howl({
+//     src: musicArr[0],
+//     autoplay: true,
+//     loop: true,
+//     volume: _volume,
+//     rate: _rate,
+//     onload: function () {
+//         console.log('Drum1 Load Ok')
+//     }
+// });
+let drum0 = new Howl({
+    src: drumArr[0],
     autoplay: true,
     loop: true,
     volume: _volume,
     rate: _rate,
     onload: function () {
-        console.log('Piano Load Ok')
+        console.log('Drum2 Load Ok')
     }
 });
-//---------------------------------------------------------------
-let cello = new Howl({
-    src: musicArr[1],
+let drum1 = new Howl({
+    src: drumArr[1],
     autoplay: true,
     loop: true,
     volume: _volume,
     rate: _rate,
     onload: function () {
-        console.log('Cello Load Ok')
+        console.log('Drum2 Load Ok')
     }
 });
-
-let drum = new Howl({
-    src: musicArr[1],
+let drum2 = new Howl({
+    src: drumArr[2],
     autoplay: false,
     loop: true,
     volume: _volume,
     rate: _rate,
     onload: function () {
-        console.log('Drum Load Ok')
+        console.log('Drum3 Load Ok')
     }
 });
-
+let cello0 = new Howl({
+    src: celloArr[0],
+    autoplay: true,
+    loop: true,
+    volume: _volume,
+    rate: _rate,
+    onload: function () {
+        console.log('Drum3 Load Ok')
+    }
+});
 let saxo0 = new Howl({
     src: saxoArr[0],
     autoplay: false,
@@ -100,35 +117,53 @@ let saxo5 = new Howl({
         console.log('saxo5 Load Ok')
     }
 });
-
-
 function cello_vol(vol) {
+    console.log(vol);
     if(vol<0) {
         vol = 0;
     }
+    cello0.volume(vol);
     cello_anim.setSpeed(vol);
-    cello.volume(vol);
-    console.log(vol);
 }
-function saxo_vol(num){
-    console.log(num);
-    if(num == 1){
-        saxo0.play();
+function drum_vol(val) {
+    console.log(val);
+    switch(val){
+        case 1:
+            drum0.volume(1);
+            break;
+        case 2:
+            drum1.volume(1);
+            break;
+        case 3:
+            drum2.volume(1);
+            break;
+        default:
+            drum0.volume(0);
+            drum1.volume(0);
+            drum2.volume(0);
     }
-    else if(num == 2){
-        saxo1.play();
-    }
-    else if(num == 3){
-        saxo2.play();
-    }
-    else if(num == 4){
-        saxo3.play();
-    }
-    else if(num == 5){
-        saxo4.play();
-    }
-    else if(num == 6){
-        saxo5.play();
+}
+function saxo_vol(val){
+    // console.log(val);
+    switch(val){
+        case 1:
+            saxo0.play();
+            break;
+        case 2:
+            saxo1.play();
+            break;
+        case 3:
+            saxo2.play();
+            break;
+        case 4:
+            saxo3.play();
+            break;
+        case 5:
+            saxo4.play();
+            break;
+        case 6:
+            saxo5.play();
+            break;
     }
 }
 
