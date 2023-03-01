@@ -3,7 +3,7 @@ const saxoArr = ["../static/music/saxo2_0.wav","../static/music/saxo2_1.wav","..
 const celloArr = ["../static/music/bass1.wav","../static/music/bass2.wav","../static/music/bass3.wav"]
 const drumArr = ["../static/music/drum1.wav","../static/music/drum2.wav","../static/music/drum3.wav"]
 let _rate = 1;
-let _volume = 0.5;
+let _volume = 1;
 
 Howler.autoUnlock = false;
 //-----------------------------OK-------------------------------
@@ -19,22 +19,36 @@ Howler.autoUnlock = false;
 // });
 let drum0 = new Howl({
     src: drumArr[0],
-    autoplay: true,
-    loop: true,
+    autoplay: false,
+    loop: false,
     volume: _volume,
     rate: _rate,
     onload: function () {
         console.log('Drum2 Load Ok')
+    },
+    onend: function(){
+        drum_anim.stop();
+        drum0.stop();
+        drum_anim.play();
+        drum0.play();
+        console.log('restart!!')
     }
 });
 let drum1 = new Howl({
     src: drumArr[1],
-    autoplay: true,
+    autoplay: false,
     loop: true,
     volume: _volume,
     rate: _rate,
     onload: function () {
         console.log('Drum2 Load Ok')
+    },
+    onend: function(){
+        drum_anim.stop();
+        drum1.stop();
+        drum_anim.play();
+        drum1.play();
+        console.log('restart!!')
     }
 });
 let drum2 = new Howl({
@@ -45,11 +59,18 @@ let drum2 = new Howl({
     rate: _rate,
     onload: function () {
         console.log('Drum3 Load Ok')
+    },
+    onend: function(){
+        drum_anim.stop();
+        drum2.stop();
+        drum_anim.play();
+        drum2.play();
+        console.log('restart!!')
     }
 });
 let cello0 = new Howl({
     src: celloArr[0],
-    autoplay: true,
+    autoplay: false,
     loop: true,
     volume: _volume,
     rate: _rate,
@@ -118,7 +139,6 @@ let saxo5 = new Howl({
     }
 });
 function cello_vol(vol) {
-    console.log(vol);
     if(vol<0) {
         vol = 0;
     }
@@ -129,22 +149,22 @@ function drum_vol(val) {
     console.log(val);
     switch(val){
         case 1:
+            drum0.play();
             drum_anim.play();
-            drum0.volume(1);
             break;
         case 2:
             drum_anim.play();
-            drum1.volume(1);
+            drum1.play();
             break;
         case 3:
             drum_anim.play();
-            drum2.volume(1);
+            drum2.play();
             break;
         default:
-            drum_anim.pause();
-            drum0.volume(0);
-            drum1.volume(0);
-            drum2.volume(0);
+            drum_anim.stop();
+            drum0.stop();
+            drum1.stop();
+            drum2.stop();
     }
 }
 function saxo_vol(val){
