@@ -1,7 +1,15 @@
-#piano {
-    height: 1080px;
+#saxo>svg{
+    z-index: -10;
 }
-
+#drum>svg{
+    z-index: -8;
+}
+#piano>svg{
+    z-index: -6;
+}
+#cello>svg{
+    z-index: -4;
+}
 svg{
     position: absolute;
     top: 0px;
@@ -10,20 +18,23 @@ svg{
 #spotlight_Saxo{
     position:absolute;
     top:0px;
-    right: -350px;
-    z-index: 0;
+    right: -900px;
+    z-index: -9;
+    /* display: none; */
 }
 #spotlight_Drum{
     position:absolute;
     top:0px;
-    right: -650px;
-    z-index: 1;
+    right: -390px;
+    z-index: -7;
+    /* display: none; */
 }
 #spotlight_Cello{
     position:absolute;
     top:0px;
-    right: -800px;
-    z-index: 0;
+    right: -700px;
+    z-index: -3;
+    /* display: none; */
 }
 
 body {

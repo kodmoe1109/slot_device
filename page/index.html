@@ -9,21 +9,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.1/lottie.min.js"></script>
     <script type="text/javascript" src="../static/js/music_controller.js"></script>
+    <script type="text/javascript" src="../static/js/jquery-3.6.4.min.js"></script>
     <title>畢製測試</title>
 </head>
 
 <body>
     <div id="canva">
+        <div id="saxo"></div>
+        <div id="drum"></div>
+        <div id="piano"></div>
+        <div id="cello"></div>
         <div>
             <img id="spotlight_Cello" src="../static/spotlight_test.png" alt="">
             <img id="spotlight_Saxo" src="../static/spotlight_test.png" alt="">
             <img id="spotlight_Drum" src="../static/spotlight_test.png" alt="">
         </div>
     </div>
-    
 </body>
 
 </html>
+<!-- FireBase -->
 <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
@@ -65,14 +70,14 @@
 </script>
 <script type="text/javascript">
     const saxo_anim = lottie.loadAnimation({
-        container: document.getElementById('canva'),
+        container: document.getElementById('saxo'),
         renderer: 'svg',
         loop: true,
         autoplay: false,
         path: '../static/animate/saxophone/saxophone.json',
     })
     const piano_anim = lottie.loadAnimation({
-        container: document.getElementById('canva'),
+        container: document.getElementById('piano'),
         renderer: 'svg',
         loop: true,
         autoplay: false,
@@ -80,24 +85,24 @@
         path: '../static/animate/piano/piano.json',
     })
     const drum_anim = lottie.loadAnimation({
-        container: document.getElementById('canva'),
+        container: document.getElementById('drum'),
         renderer: 'svg',
         loop: true,
         autoplay: false,
         path: '../static/animate/drum/drum.json',
     })
     const cello_anim = lottie.loadAnimation({
-        container: document.getElementById('canva'),
+        container: document.getElementById('cello'),
         renderer: 'svg',
-        loop: false,
+        loop: true,
         autoplay: false,
-        path: '../static/animate/cello/cello1.json',
+        path: '../static/animate/cello/cello0.json',
     })
 
     window.onload = function () {
         piano_anim.play();
-        // drum_anim.play();
-        // saxo_anim.play();
-        // cello_anim.play();
+        $('#spotlight_Saxo').hide();
+        $('#spotlight_Drum').hide();
+        $('#spotlight_Cello').hide();
     }
 </script>

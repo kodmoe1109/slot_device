@@ -21,9 +21,9 @@ function show_num() {
         port.on("data", function (d) {
             let real_data = parseInt(d);
                 console.log(d);
-                // update(connect_router, {
-                //     'drum_val':real_data,
-                // });
+                update(connect_router, {
+                    'drum_val':real_data,
+                });
         })
     })
 }
