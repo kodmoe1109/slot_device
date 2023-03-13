@@ -7,16 +7,32 @@ svg{
     top: 0px;
     right : 0px;
 }
+#spotlight_Saxo{
+    position:absolute;
+    top:0px;
+    right: -350px;
+    z-index: 0;
+}
+#spotlight_Drum{
+    position:absolute;
+    top:0px;
+    right: -650px;
+    z-index: 1;
+}
+#spotlight_Cello{
+    position:absolute;
+    top:0px;
+    right: -800px;
+    z-index: 0;
+}
 
 body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    /* background-size: cover;  */
-    background-size: 1300px;
+    background-size: 1535px;
     background-image: url('../bg_img1.jpg');
     background-color: black;
-    /* background-position: 300px; */
 }
 
 body::-webkit-scrollbar {

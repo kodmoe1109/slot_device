@@ -6,7 +6,7 @@ const db = getDatabase();//firebase
 const connect_router = ref(db,'/')//firebase
 
 // const arduinoPort = 'COM4'
-const _arduinoPort = '/dev/cu.usbserial-14320'
+const _arduinoPort = '/dev/cu.usbmodem143401'
 const port = new SerialPort(_arduinoPort, { bauRate: 9600 }, (err) => {
     if (err) {
         console.log('fail');
@@ -20,10 +20,10 @@ function show_num() {
     port.write("open", function () {
         port.on("data", function (d) {
             let real_data = parseInt(d);
-                console.log(real_data);
-                update(connect_router, {
-                    'drum_val':real_data,
-                });
+                console.log(d);
+                // update(connect_router, {
+                //     'drum_val':real_data,
+                // });
         })
     })
 }

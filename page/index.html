@@ -13,7 +13,14 @@
 </head>
 
 <body>
-    <div id="canva"></div>
+    <div id="canva">
+        <div>
+            <img id="spotlight_Cello" src="../static/spotlight_test.png" alt="">
+            <img id="spotlight_Saxo" src="../static/spotlight_test.png" alt="">
+            <img id="spotlight_Drum" src="../static/spotlight_test.png" alt="">
+        </div>
+    </div>
+    
 </body>
 
 </html>
@@ -42,16 +49,22 @@
     const app = initializeApp(firebaseConfig);
     const db = getDatabase();
 
-    const router = ref(db, "/");
-    onValue(router, (el) => {
-        cello_vol(el.val()['cello_val']);
-        saxo_vol(el.val()['saxo_val']);
-        drum_vol(el.val()['drum_val']);
+    const router_saxo = ref(db, "/saxo_val");
+    const router_cello = ref(db, "/cello_val");
+    const router_drum = ref(db, "/drum_val");
+    onValue(router_saxo, (el) => {
+        saxo_vol(el.val());
+    })
+    onValue(router_cello, (el) => {
+        cello_vol(el.val());
+    })
+    onValue(router_drum, (el) => {
+        drum_vol(el.val());
     })
 
 </script>
 <script type="text/javascript">
-    const saxophone_anim = lottie.loadAnimation({
+    const saxo_anim = lottie.loadAnimation({
         container: document.getElementById('canva'),
         renderer: 'svg',
         loop: true,
@@ -63,6 +76,7 @@
         renderer: 'svg',
         loop: true,
         autoplay: false,
+        id:'piano_anim',
         path: '../static/animate/piano/piano.json',
     })
     const drum_anim = lottie.loadAnimation({
@@ -75,18 +89,15 @@
     const cello_anim = lottie.loadAnimation({
         container: document.getElementById('canva'),
         renderer: 'svg',
-        loop: true,
+        loop: false,
         autoplay: false,
-        path: '../static/animate/cello/cello.json',
+        path: '../static/animate/cello/cello1.json',
     })
 
     window.onload = function () {
         piano_anim.play();
-        drum_anim.play();
-        // saxophone_anim.play();
-        cello_anim.play();
-        // setTimeout(function(){
-        //     cello_anim.play()
-        // },4000)
+        // drum_anim.play();
+        // saxo_anim.play();
+        // cello_anim.play();
     }
 </script>

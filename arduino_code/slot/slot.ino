@@ -7,7 +7,6 @@ Adafruit_ADXL345_Unified accel = Adafruit_ADXL345_Unified();
 void setup(void) 
 {
    Serial.begin(9600);  
-
    if(!accel.begin())
    {
       Serial.println("No ADXL345 sensor detected.");
