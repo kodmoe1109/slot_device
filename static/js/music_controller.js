@@ -117,7 +117,8 @@ let cello0 = new Howl({
         cello_anim.play();
         cello0.play();
         console.log('cello0 restart!!')
-    },onstop: function () {
+    },
+    onstop: function () {
         cello_End_Result()
         celloCtrl_enable = true;
     }
@@ -146,7 +147,7 @@ let saxo0 = new Howl({
         $('#spotlight_Saxo').fadeOut(300);
     }
 
-});
+});//OK
 let saxo1 = new Howl({
     src: saxoArr[1],
     autoplay: false,
@@ -268,6 +269,7 @@ let saxo5 = new Howl({
     }
 });//OK
 function cello_vol(vol) {
+    console.log(celloCtrl_enable)
     if (celloCtrl_enable) {
         cello0.play();
     }
@@ -276,7 +278,6 @@ function cello_vol(vol) {
     }else{
        cello0.volume(vol); 
     }
-    
 
 }
 function drum_vol(val) {
@@ -295,7 +296,7 @@ function drum_vol(val) {
         
     }
 
-}
+}//OK
 function saxo_vol(val) {
     if (saxoCtrl_enable) {
         switch (val) {
@@ -321,12 +322,12 @@ function saxo_vol(val) {
                 saxo_music_all_stop();
         }
     }
-}
+}//OK
 function drum_music_all_stop() {
     drum0.stop();
     drum1.stop();
     drum2.stop();
-}
+}//OK
 function saxo_music_all_stop() {
     saxo0.stop();
     saxo1.stop();
@@ -334,25 +335,27 @@ function saxo_music_all_stop() {
     saxo3.stop();
     saxo4.stop();
     saxo5.stop();
-}
+}//OK
 function cello_music_all_stop() {
     cello0.stop();
     // cello1.stop();
     // cello2.stop();
-}
+}//OK
 function saxo_End_Result() {
     $('#spotlight_Saxo').fadeOut(300);
     saxoCtrl_enable = true;
     saxo_anim.pause();
-}
+}//OK
 function drum_End_Result() {
     $('#spotlight_Drum').fadeOut(300);
     drum_anim.stop();
-}
+}//OK
 function cello_End_Result() {
     $('#spotlight_Cello').fadeOut(300);
     cello_anim.stop();
-}
+}//OK
+
+
 // ---------------ANIMATION----------------------------------------------
 // function cello_anim0() {
 //     setInterval(() => {
