@@ -18,21 +18,21 @@ svg{
 #spotlight_Saxo{
     position:absolute;
     top:0px;
-    right: -900px;
+    right: -975px;
     z-index: -9;
     /* display: none; */
 }
 #spotlight_Drum{
     position:absolute;
     top:0px;
-    right: -390px;
+    right: -455px;
     z-index: -7;
     /* display: none; */
 }
 #spotlight_Cello{
     position:absolute;
     top:0px;
-    right: -700px;
+    right: -775px;
     z-index: -3;
     /* display: none; */
 }
@@ -41,7 +41,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    background-size: 1535px;
+    background-size: 1635px;
     background-image: url('../bg_img1.jpg');
     background-color: black;
 }

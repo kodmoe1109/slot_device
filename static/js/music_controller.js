@@ -12,7 +12,7 @@ Howler.autoUnlock = false;
 //-----------------------------Piano-------------------------------
 let piano = new Howl({
     src: pianoArr[0],
-    autoplay: false,
+    autoplay: true,
     loop: true,
     volume: 1,
     rate: _rate,
@@ -32,7 +32,7 @@ let drum0 = new Howl({
     },
     onplay: function () {
         $('#spotlight_Drum').fadeIn(800);
-        setTimeout(() => { $('#spotlight_Drum').fadeOut(800); }, 5000)
+        setTimeout(() => { $('#spotlight_Drum').fadeOut(800); }, 2500)
         drum_anim.play();
     },
     onend: function () {
@@ -57,7 +57,7 @@ let drum1 = new Howl({
     },
     onplay: function () {
         $('#spotlight_Drum').fadeIn(800);
-        setTimeout(() => { $('#spotlight_Drum').fadeOut(800); }, 5000)
+        setTimeout(() => { $('#spotlight_Drum').fadeOut(800); }, 2500)
         drum_anim.play();
     },
     onend: function () {
@@ -82,7 +82,7 @@ let drum2 = new Howl({
     },
     onplay: function () {
         $('#spotlight_Drum').fadeIn(800);
-        setTimeout(() => { $('#spotlight_Drum').fadeOut(800); }, 5000)
+        setTimeout(() => { $('#spotlight_Drum').fadeOut(800); }, 2500)
         drum_anim.play();
     },
     onend: function () {
@@ -108,7 +108,7 @@ let cello0 = new Howl({
     onplay: function () {
         cello_anim.play();
         $('#spotlight_Cello').fadeIn(800);
-        setTimeout(() => { $('#spotlight_Cello').fadeOut(800); }, 5000)
+        setTimeout(() => { $('#spotlight_Cello').fadeOut(800); }, 2500)
         celloCtrl_enable = false;
     },
     onend: function () {
