@@ -1,13 +1,14 @@
 import SerialPort from "serialport";
+import RLparser from "@serialport/parser-readline";
 import { firebase } from "./firebase.js"
 import { getDatabase, onValue, ref, set, update } from "firebase/database";
 
 const db = getDatabase();//firebase
 const connect_router = ref(db,'/')//firebase
 
-// const arduinoPort = 'COM4'
-const _arduinoPort = '/dev/cu.usbserial-14420'
-const port = new SerialPort(_arduinoPort, { bauRate: 9600 }, (err) => {
+const arduinoPort = 'COM4'
+// const arduinoPort = '/dev/cu.usbserial-14420'
+const port = new SerialPort(arduinoPort, { bauRate: 9600 }, (err) => {
     if (err) {
         console.log('fail');
         return
@@ -15,16 +16,19 @@ const port = new SerialPort(_arduinoPort, { bauRate: 9600 }, (err) => {
     console.log('已連接至 Arduino UNO 板')
 });
 
-setTimeout(()=>{show_num();},1000)
-function show_num() {
+const parser = port.pipe(new RLparser({ delimiter: '\r\n' }))
+
+setTimeout(()=>{serialBegin();},1000)
+function serialBegin() {
     port.write("open", function () {
-        port.on("data", function (d) {
-            let real_data = parseFloat(d)
-            if (real_data) { // 拉下拉霸
-                let data = real_data/-10;
-                console.log(data);
+        parser.on("data", function (d) {
+            let data = parseFloat(d)
+            console.log(data);
+            if (data) { // 拉下拉霸
+                let upload_data = data/-10;
+                // console.log(data);
                 update(connect_router, {
-                    'cello_val':data,
+                    'cello_val':upload_data,
                 });
             }
         })
