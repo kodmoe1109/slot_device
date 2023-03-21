@@ -12,7 +12,7 @@ Howler.autoUnlock = false;
 //-----------------------------Piano-------------------------------
 let piano = new Howl({
     src: pianoArr[0],
-    autoplay: false,
+    autoplay: true,
     loop: true,
     volume: 0.8,
     rate: _rate,
@@ -31,6 +31,7 @@ let drum0 = new Howl({
         console.log('Drum0 Load Ok')
     },
     onplay: function () {
+        drumCtrl_enable = false;
         $('#drum0').show();
         $('#drum1').hide();
         $('#drum2').hide();
@@ -59,6 +60,7 @@ let drum1 = new Howl({
         console.log('Drum1 Load Ok')
     },
     onplay: function () {
+        drumCtrl_enable = false;
         $('#drum0').hide();
         $('#drum1').show();
         $('#drum2').hide();
@@ -87,6 +89,7 @@ let drum2 = new Howl({
         console.log('Drum2 Load Ok')
     },
     onplay: function () {
+        drumCtrl_enable = false;
         $('#drum0').hide();
         $('#drum1').hide();
         $('#drum2').show();
@@ -333,20 +336,20 @@ let saxo5 = new Howl({
 });//OK
 function cello_vol0(vol) {
     console.log(vol)
-    if (vol>=0.1&&celloCtrl_enable) {
+    if (vol >= 0.1 && celloCtrl_enable) {
         cello0.play();
     }
-    cello0.volume(vol); 
+    cello0.volume(vol);
     if (vol < 0.1) {
         cello0.stop();
     }
 }
 function cello_vol1(vol) {
     console.log(vol)
-    if (vol>=0.1&&celloCtrl_enable) {
+    if (vol >= 0.1 && celloCtrl_enable) {
         cello1.play();
     }
-    cello0.volume(vol); 
+    cello0.volume(vol);
     if (vol < 0.1) {
         cello1.stop();
     }
@@ -354,15 +357,16 @@ function cello_vol1(vol) {
 }
 function cello_vol2(vol) {
     console.log(vol)
-    if (vol>=0.1&&celloCtrl_enable) {
+    if (vol >= 0.1 && celloCtrl_enable) {
         cello2.play();
     }
-    cello0.volume(vol); 
+    cello0.volume(vol);
     if (vol < 0.1) {
         cello2.stop();
     }
 }
 function drum_vol(val) {
+    if (drumCtrl_enable) {
         switch (val) {
             case 1:
                 drum0.play();
@@ -375,7 +379,9 @@ function drum_vol(val) {
                 break;
             default:
                 drum_music_all_stop();
-        
+        }
+    }else if(drumCtrl_enable == false && val == 0){
+        drum_music_all_stop();
     }
 
 }//OK
@@ -433,9 +439,7 @@ function drum_End_Result() {
     drum_anim0.stop();
     drum_anim1.stop();
     drum_anim2.stop();
-    // $('#drum_anim0').show();
-    // $('#drum_anim1').hide();
-    // $('#drum_anim2').hide();
+    drumCtrl_enable = true;
 }//OK
 function cello_End_Result() {
     $('#spotlight_Cello').fadeOut(300);
