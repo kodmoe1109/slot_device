@@ -16,7 +16,9 @@
 <body>
     <div id="canva">
         <div id="saxo"></div>
-        <div id="drum"></div>
+        <div id="drum0"></div>
+        <div id="drum1"></div>
+        <div id="drum2"></div>
         <div id="piano"></div>
         <div id="cello"></div>
         <div>
@@ -56,12 +58,20 @@
 
     const router_saxo = ref(db, "/saxo_val");
     const router_cello = ref(db, "/cello_val");
+    const router_cello1 = ref(db, "/cello_val1");
+    const router_cello2 = ref(db, "/cello_val2");
     const router_drum = ref(db, "/drum_val");
     onValue(router_saxo, (el) => {
         saxo_vol(el.val());
     })
     onValue(router_cello, (el) => {
-        cello_vol(el.val());
+        cello_vol0(el.val());
+    })
+    onValue(router_cello1, (el) => {
+        cello_vol1(el.val());
+    })
+    onValue(router_cello2, (el) => {
+        cello_vol2(el.val());
     })
     onValue(router_drum, (el) => {
         drum_vol(el.val());
@@ -84,12 +94,26 @@
         id:'piano_anim',
         path: '../static/animate/piano/piano.json',
     })
-    const drum_anim = lottie.loadAnimation({
-        container: document.getElementById('drum'),
+    const drum_anim0 = lottie.loadAnimation({
+        container: document.getElementById('drum0'),
         renderer: 'svg',
         loop: true,
         autoplay: false,
-        path: '../static/animate/drum/drum.json',
+        path: '../static/animate/drum/drum0.json',
+    })
+    const drum_anim1 = lottie.loadAnimation({
+        container: document.getElementById('drum1'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: false,
+        path: '../static/animate/drum/drum1.json',
+    })
+    const drum_anim2 = lottie.loadAnimation({
+        container: document.getElementById('drum2'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: false,
+        path: '../static/animate/drum/drum2.json',
     })
     const cello_anim = lottie.loadAnimation({
         container: document.getElementById('cello'),

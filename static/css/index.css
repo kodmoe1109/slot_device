@@ -1,7 +1,13 @@
 #saxo>svg{
     z-index: -10;
 }
-#drum>svg{
+#drum0>svg{
+    z-index: -8;
+}
+#drum1>svg{
+    z-index: -8;
+}
+#drum2>svg{
     z-index: -8;
 }
 #piano>svg{

@@ -10,16 +10,16 @@ let _volume = 0.5;
 
 Howler.autoUnlock = false;
 //-----------------------------Piano-------------------------------
-// let piano = new Howl({
-//     src: pianoArr[0],
-//     autoplay: true,
-//     loop: true,
-//     volume: 0.5,
-//     rate: _rate,
-//     onload: function () {
-//         console.log('Piano Load Ok')
-//     }
-// });//OK
+let piano = new Howl({
+    src: pianoArr[0],
+    autoplay: true,
+    loop: true,
+    volume: 0.8,
+    rate: _rate,
+    onload: function () {
+        console.log('Piano Load Ok')
+    }
+});//OK
 //------------------------------------------------------------
 let drum0 = new Howl({
     src: drumArr[0],
@@ -31,9 +31,9 @@ let drum0 = new Howl({
         console.log('Drum0 Load Ok')
     },
     onplay: function () {
-        $('#drum_anim0').show();
-        $('#drum_anim1').hide();
-        $('#drum_anim2').hide();
+        $('#drum0').show();
+        $('#drum1').hide();
+        $('#drum2').hide();
         $('#spotlight_Drum').fadeIn(800);
         setTimeout(() => { $('#spotlight_Drum').fadeOut(800); }, 2500)
         drum_anim0.play();
@@ -59,9 +59,9 @@ let drum1 = new Howl({
         console.log('Drum1 Load Ok')
     },
     onplay: function () {
-        $('#drum_anim0').hide();
-        $('#drum_anim1').show();
-        $('#drum_anim2').hide();
+        $('#drum0').hide();
+        $('#drum1').show();
+        $('#drum2').hide();
         $('#spotlight_Drum').fadeIn(800);
         setTimeout(() => { $('#spotlight_Drum').fadeOut(800); }, 2500)
         drum_anim1.play();
@@ -87,9 +87,9 @@ let drum2 = new Howl({
         console.log('Drum2 Load Ok')
     },
     onplay: function () {
-        $('#drum_anim0').hide();
-        $('#drum_anim1').hide();
-        $('#drum_anim2').show();
+        $('#drum0').hide();
+        $('#drum1').hide();
+        $('#drum2').show();
         $('#spotlight_Drum').fadeIn(800);
         setTimeout(() => { $('#spotlight_Drum').fadeOut(800); }, 2500)
         drum_anim2.play();
@@ -126,6 +126,60 @@ let cello0 = new Howl({
         cello_anim.play();
         cello0.play();
         console.log('cello0 restart!!')
+    },
+    onstop: function () {
+        cello_End_Result()
+        celloCtrl_enable = true;
+    }
+});
+let cello1 = new Howl({
+    src: celloArr[1],
+    autoplay: false,
+    loop: false,
+    volume: _volume,
+    rate: _rate,
+    onload: function () {
+        console.log('Cello1 Load Ok')
+    },
+    onplay: function () {
+        cello_anim.play();
+        $('#spotlight_Cello').fadeIn(800);
+        setTimeout(() => { $('#spotlight_Cello').fadeOut(800); }, 2500)
+        celloCtrl_enable = false;
+    },
+    onend: function () {
+        cello_anim.stop();
+        cello1.stop();
+        cello_anim.play();
+        cello1.play();
+        console.log('cello1 restart!!')
+    },
+    onstop: function () {
+        cello_End_Result()
+        celloCtrl_enable = true;
+    }
+});
+let cello2 = new Howl({
+    src: celloArr[2],
+    autoplay: false,
+    loop: false,
+    volume: _volume,
+    rate: _rate,
+    onload: function () {
+        console.log('Cello2 Load Ok')
+    },
+    onplay: function () {
+        cello_anim.play();
+        $('#spotlight_Cello').fadeIn(800);
+        setTimeout(() => { $('#spotlight_Cello').fadeOut(800); }, 2500)
+        celloCtrl_enable = false;
+    },
+    onend: function () {
+        cello_anim.stop();
+        cello2.stop();
+        cello_anim.play();
+        cello2.play();
+        console.log('cello2 restart!!')
     },
     onstop: function () {
         cello_End_Result()
@@ -277,7 +331,28 @@ let saxo5 = new Howl({
         $('#spotlight_Saxo').fadeOut(300);
     }
 });//OK
-function cello_vol(vol) {
+function cello_vol0(vol) {
+    console.log(celloCtrl_enable)
+    if (celloCtrl_enable) {
+        cello0.play();
+    }
+    cello0.volume(vol); 
+    if (vol <= 0) {
+        cello0.stop();
+    }
+}
+function cello_vol1(vol) {
+    console.log(celloCtrl_enable)
+    if (celloCtrl_enable) {
+        cello0.play();
+    }
+    cello0.volume(vol); 
+    if (vol <= 0) {
+        cello0.stop();
+    }
+
+}
+function cello_vol2(vol) {
     console.log(celloCtrl_enable)
     if (celloCtrl_enable) {
         cello0.play();
