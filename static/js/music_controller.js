@@ -12,7 +12,7 @@ Howler.autoUnlock = false;
 //-----------------------------Piano-------------------------------
 let piano = new Howl({
     src: pianoArr[0],
-    autoplay: true,
+    autoplay: false,
     loop: true,
     volume: 0.8,
     rate: _rate,
@@ -332,36 +332,35 @@ let saxo5 = new Howl({
     }
 });//OK
 function cello_vol0(vol) {
-    console.log(celloCtrl_enable)
-    if (celloCtrl_enable) {
+    console.log(vol)
+    if (vol>=0.1&&celloCtrl_enable) {
         cello0.play();
     }
     cello0.volume(vol); 
-    if (vol <= 0) {
+    if (vol < 0.1) {
         cello0.stop();
     }
 }
 function cello_vol1(vol) {
-    console.log(celloCtrl_enable)
-    if (celloCtrl_enable) {
-        cello0.play();
+    console.log(vol)
+    if (vol>=0.1&&celloCtrl_enable) {
+        cello1.play();
     }
     cello0.volume(vol); 
-    if (vol <= 0) {
-        cello0.stop();
+    if (vol < 0.1) {
+        cello1.stop();
     }
 
 }
 function cello_vol2(vol) {
-    console.log(celloCtrl_enable)
-    if (celloCtrl_enable) {
-        cello0.play();
+    console.log(vol)
+    if (vol>=0.1&&celloCtrl_enable) {
+        cello2.play();
     }
     cello0.volume(vol); 
-    if (vol <= 0) {
-        cello0.stop();
+    if (vol < 0.1) {
+        cello2.stop();
     }
-
 }
 function drum_vol(val) {
         switch (val) {
@@ -442,11 +441,3 @@ function cello_End_Result() {
     $('#spotlight_Cello').fadeOut(300);
     cello_anim.stop();
 }//OK
-
-
-// ---------------ANIMATION----------------------------------------------
-// function cello_anim0() {
-//     setInterval(() => {
-//         cello_anim.playSegments([(0,25)], 1);
-//     }, 500)
-// }

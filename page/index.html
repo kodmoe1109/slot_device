@@ -57,14 +57,14 @@
     const db = getDatabase();
 
     const router_saxo = ref(db, "/saxo_val");
-    const router_cello = ref(db, "/cello_val");
+    const router_cello0 = ref(db, "/cello_val0");
     const router_cello1 = ref(db, "/cello_val1");
     const router_cello2 = ref(db, "/cello_val2");
     const router_drum = ref(db, "/drum_val");
     onValue(router_saxo, (el) => {
         saxo_vol(el.val());
     })
-    onValue(router_cello, (el) => {
+    onValue(router_cello0, (el) => {
         cello_vol0(el.val());
     })
     onValue(router_cello1, (el) => {
