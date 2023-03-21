@@ -10,16 +10,16 @@ let _volume = 0.5;
 
 Howler.autoUnlock = false;
 //-----------------------------Piano-------------------------------
-let piano = new Howl({
-    src: pianoArr[0],
-    autoplay: true,
-    loop: true,
-    volume: 1,
-    rate: _rate,
-    onload: function () {
-        console.log('Piano Load Ok')
-    }
-});//OK
+// let piano = new Howl({
+//     src: pianoArr[0],
+//     autoplay: true,
+//     loop: true,
+//     volume: 0.5,
+//     rate: _rate,
+//     onload: function () {
+//         console.log('Piano Load Ok')
+//     }
+// });//OK
 //------------------------------------------------------------
 let drum0 = new Howl({
     src: drumArr[0],
@@ -31,14 +31,17 @@ let drum0 = new Howl({
         console.log('Drum0 Load Ok')
     },
     onplay: function () {
+        $('#drum_anim0').show();
+        $('#drum_anim1').hide();
+        $('#drum_anim2').hide();
         $('#spotlight_Drum').fadeIn(800);
         setTimeout(() => { $('#spotlight_Drum').fadeOut(800); }, 2500)
-        drum_anim.play();
+        drum_anim0.play();
     },
     onend: function () {
-        drum_anim.stop();
+        drum_anim0.stop();
         drum0.stop();
-        drum_anim.play();
+        drum_anim0.play();
         drum0.play();
         console.log('restart!!')
     },
@@ -56,14 +59,17 @@ let drum1 = new Howl({
         console.log('Drum1 Load Ok')
     },
     onplay: function () {
+        $('#drum_anim0').hide();
+        $('#drum_anim1').show();
+        $('#drum_anim2').hide();
         $('#spotlight_Drum').fadeIn(800);
         setTimeout(() => { $('#spotlight_Drum').fadeOut(800); }, 2500)
-        drum_anim.play();
+        drum_anim1.play();
     },
     onend: function () {
-        drum_anim.stop();
+        drum_anim1.stop();
         drum1.stop();
-        drum_anim.play();
+        drum_anim1.play();
         drum1.play();
         console.log('restart!!')
     },
@@ -81,14 +87,17 @@ let drum2 = new Howl({
         console.log('Drum2 Load Ok')
     },
     onplay: function () {
+        $('#drum_anim0').hide();
+        $('#drum_anim1').hide();
+        $('#drum_anim2').show();
         $('#spotlight_Drum').fadeIn(800);
         setTimeout(() => { $('#spotlight_Drum').fadeOut(800); }, 2500)
-        drum_anim.play();
+        drum_anim2.play();
     },
     onend: function () {
-        drum_anim.stop();
+        drum_anim2.stop();
         drum2.stop();
-        drum_anim.play();
+        drum_anim2.play();
         drum2.play();
         console.log('restart!!')
     },
@@ -273,10 +282,9 @@ function cello_vol(vol) {
     if (celloCtrl_enable) {
         cello0.play();
     }
+    cello0.volume(vol); 
     if (vol <= 0) {
         cello0.stop();
-    }else{
-       cello0.volume(vol); 
     }
 
 }
@@ -348,7 +356,12 @@ function saxo_End_Result() {
 }//OK
 function drum_End_Result() {
     $('#spotlight_Drum').fadeOut(300);
-    drum_anim.stop();
+    drum_anim0.stop();
+    drum_anim1.stop();
+    drum_anim2.stop();
+    // $('#drum_anim0').show();
+    // $('#drum_anim1').hide();
+    // $('#drum_anim2').hide();
 }//OK
 function cello_End_Result() {
     $('#spotlight_Cello').fadeOut(300);
