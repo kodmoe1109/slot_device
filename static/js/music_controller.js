@@ -7,12 +7,13 @@ let celloCtrl_enable = true;
 let drumCtrl_enable = true;
 let _rate = 1;
 let _volume = 0.5;
+let saxo_volume = 0.3;
 
 Howler.autoUnlock = false;
 //-----------------------------Piano-------------------------------
 let piano = new Howl({
     src: pianoArr[0],
-    autoplay: false,
+    autoplay: true,
     loop: true,
     volume: 0.8,
     rate: _rate,
@@ -112,7 +113,7 @@ let cello0 = new Howl({
     src: celloArr[0],
     autoplay: false,
     loop: false,
-    volume: _volume,
+    volume: 0.8,
     rate: _rate,
     onload: function () {
         console.log('Cello0 Load Ok')
@@ -193,7 +194,7 @@ let saxo0 = new Howl({
     src: saxoArr[0],
     autoplay: false,
     loop: false,
-    volume: _volume,
+    volume: saxo_volume,
     rate: _rate,
     onload: function () {
         console.log('saxo0 Load Ok')
@@ -218,7 +219,7 @@ let saxo1 = new Howl({
     src: saxoArr[1],
     autoplay: false,
     loop: false,
-    volume: _volume,
+    volume: saxo_volume,
     rate: _rate,
     onload: function () {
         console.log('saxo1 Load Ok')
@@ -242,7 +243,7 @@ let saxo2 = new Howl({
     src: saxoArr[2],
     autoplay: false,
     loop: false,
-    volume: _volume,
+    volume: saxo_volume,
     rate: _rate,
     onload: function () {
         console.log('saxo2 Load Ok')
@@ -266,7 +267,7 @@ let saxo3 = new Howl({
     src: saxoArr[3],
     autoplay: false,
     loop: false,
-    volume: _volume,
+    volume: saxo_volume,
     rate: _rate,
     onload: function () {
         console.log('saxo3 Load Ok')
@@ -290,7 +291,7 @@ let saxo4 = new Howl({
     src: saxoArr[4],
     autoplay: false,
     loop: false,
-    volume: _volume,
+    volume: saxo_volume,
     rate: _rate,
     onload: function () {
         console.log('saxo4 Load Ok')
@@ -314,7 +315,7 @@ let saxo5 = new Howl({
     src: saxoArr[5],
     autoplay: false,
     loop: false,
-    volume: _volume,
+    volume: saxo_volume,
     rate: _rate,
     onload: function () {
         console.log('saxo5 Load Ok')
@@ -335,33 +336,39 @@ let saxo5 = new Howl({
     }
 });//OK
 function cello_vol0(vol) {
-    console.log(vol)
-    if (vol >= 0.1 && celloCtrl_enable) {
+    // console.log(vol)
+    if (vol >= 0.3 && celloCtrl_enable == true) {
         cello0.play();
+        celloCtrl_enable = false ; 
     }
     cello0.volume(vol);
-    if (vol < 0.1) {
+    if (vol < 0.3) {
         cello0.stop();
     }
 }
 function cello_vol1(vol) {
-    console.log(vol)
-    if (vol >= 0.1 && celloCtrl_enable) {
+    // console.log(vol)
+    if (vol >= 0.3 && celloCtrl_enable == true) {
+        console.log(celloCtrl_enable);
         cello1.play();
+        celloCtrl_enable = false ; 
     }
     cello0.volume(vol);
-    if (vol < 0.1) {
+    if (vol < 0.3) {
         cello1.stop();
     }
 
 }
 function cello_vol2(vol) {
-    console.log(vol)
-    if (vol >= 0.1 && celloCtrl_enable) {
+    // console.log(vol)
+    if (vol >= 0.3 && celloCtrl_enable == true) {
+        console.log(celloCtrl_enable);
+        console.log("1");
         cello2.play();
+        celloCtrl_enable = false;
     }
     cello0.volume(vol);
-    if (vol < 0.1) {
+    if (vol < 0.3) {
         cello2.stop();
     }
 }
