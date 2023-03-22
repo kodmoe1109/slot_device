@@ -12,7 +12,7 @@ Howler.autoUnlock = false;
 //-----------------------------Piano-------------------------------
 let piano = new Howl({
     src: pianoArr[0],
-    autoplay: true,
+    autoplay: false,
     loop: true,
     volume: 0.8,
     rate: _rate,

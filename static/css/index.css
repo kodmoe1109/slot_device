@@ -24,14 +24,14 @@ svg{
 #spotlight_Saxo{
     position:absolute;
     top:0px;
-    right: -975px;
+    right: -1325px;
     z-index: -9;
     /* display: none; */
 }
 #spotlight_Drum{
     position:absolute;
     top:0px;
-    right: -455px;
+    right: -950px;
     z-index: -7;
     /* display: none; */
 }
