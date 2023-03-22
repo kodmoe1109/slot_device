@@ -39,7 +39,7 @@ svg{
     position:absolute;
     top:0px;
     right: -1155px;
-    z-index: -3;
+    z-index: 5;
     /* display: none; */
 }
 
