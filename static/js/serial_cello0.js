@@ -6,8 +6,8 @@ import { getDatabase, onValue, ref, set, update } from "firebase/database";
 const db = getDatabase();//firebase
 const connect_router = ref(db,'/')//firebase
 
-const arduinoPort = 'COM4'
-// const arduinoPort = '/dev/cu.usbserial-14420'
+// const arduinoPort = 'COM4'
+const arduinoPort = '/dev/cu.usbmodem143201'
 const port = new SerialPort(arduinoPort, { bauRate: 9600 }, (err) => {
     if (err) {
         console.log('fail');
@@ -28,7 +28,7 @@ function serialBegin() {
                 let upload_data = data/-10;
                 // console.log(data);
                 update(connect_router, {
-                    'cello_val':upload_data,
+                    'cello_val0':upload_data,
                 });
             }
         })

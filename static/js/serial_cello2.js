@@ -28,7 +28,7 @@ function serialBegin() {
                 let upload_data = data/-10;
                 // console.log(data);
                 update(connect_router, {
-                    'cello_val':upload_data,
+                    'cello_val2':upload_data,
                 });
             }
         })
