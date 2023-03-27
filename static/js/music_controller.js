@@ -1,5 +1,5 @@
 const pianoArr = ["../static/music/piano.wav"];
-const saxoArr = ["../static/music/saxo2_0.wav", "../static/music/saxo2_1.wav", "../static/music/saxo2_2.wav", "../static/music/saxo2_3.wav", "../static/music/saxo2_4.wav", "../static/music/saxo2_5.wav",]
+const saxoArr = ["../static/music/do.wav", "../static/music/ra.wav", "../static/music/mi.wav", "../static/music/la.wav", "../static/music/so.wav", "../static/music/saxo2_5.wav",]
 const celloArr = ["../static/music/bass1.wav", "../static/music/bass2.wav", "../static/music/bass3.wav"]
 const drumArr = ["../static/music/drum1.wav", "../static/music/drum2.wav", "../static/music/drum3.wav"]
 let saxoCtrl_enable = true;
@@ -310,30 +310,30 @@ let saxo4 = new Howl({
         $('#spotlight_Saxo').fadeOut(300);
     }
 });//OK
-let saxo5 = new Howl({
-    src: saxoArr[5],
-    autoplay: false,
-    loop: false,
-    volume: saxo_volume,
-    rate: _rate,
-    onload: function () {
-        console.log('saxo5 Load Ok')
-    },
-    onplay: function () {
-        $('#spotlight_Saxo').fadeIn(800);
-        saxo_anim.play();
-    },
-    onstop: function () {
-        saxoCtrl_enable = false;
-        saxo_End_Result()
-        $('#spotlight_Saxo').fadeOut(300);
-    },
-    onend: function () {
-        saxoCtrl_enable = false;
-        saxo_End_Result()
-        $('#spotlight_Saxo').fadeOut(300);
-    }
-});//OK
+// let saxo5 = new Howl({
+//     src: saxoArr[5],
+//     autoplay: false,
+//     loop: false,
+//     volume: saxo_volume,
+//     rate: _rate,
+//     onload: function () {
+//         console.log('saxo5 Load Ok')
+//     },
+//     onplay: function () {
+//         $('#spotlight_Saxo').fadeIn(800);
+//         saxo_anim.play();
+//     },
+//     onstop: function () {
+//         saxoCtrl_enable = false;
+//         saxo_End_Result()
+//         $('#spotlight_Saxo').fadeOut(300);
+//     },
+//     onend: function () {
+//         saxoCtrl_enable = false;
+//         saxo_End_Result()
+//         $('#spotlight_Saxo').fadeOut(300);
+//     }
+// });//OK
 function cello_vol0(vol) {
     if (vol >= 0.3 && celloCtrl0_enable == true && celloCtrl1_enable == true && celloCtrl2_enable == true) {
         cello0.play();
@@ -408,9 +408,6 @@ function saxo_vol(val) {
             case 5:
                 saxo4.play();
                 break;
-            case 6:
-                saxo5.play();
-                break;
             default:
                 saxo_music_all_stop();
         }
@@ -427,7 +424,6 @@ function saxo_music_all_stop() {
     saxo2.stop();
     saxo3.stop();
     saxo4.stop();
-    saxo5.stop();
 }//OK
 function cello_music_all_stop() {
     cello0.stop();
