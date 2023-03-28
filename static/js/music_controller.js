@@ -11,7 +11,7 @@ let _rate = 1;
 let _volume = 0.5;
 let saxo_volume = 0.3;
 
-Howler.autoUnlock = false;
+// Howler.autoUnlock = false;
 //-----------------------------Piano-------------------------------
 let piano = new Howl({
     src: pianoArr[0],
@@ -209,7 +209,7 @@ let saxo0 = new Howl({
     },
     onend: function () {
         saxoCtrl_enable = false;
-        saxo_End_Result()
+        // saxo_End_Result();
         $('#spotlight_Saxo').fadeOut(300);
     }
 

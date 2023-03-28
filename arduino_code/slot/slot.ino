@@ -10,7 +10,7 @@ void setup(void)
    if(!accel.begin())
    {
       Serial.println("No ADXL345 sensor detected.");
-      while(1);
+      while(1);  
    }
 }
 
@@ -18,7 +18,7 @@ void loop()
 {
    sensors_event_t event; 
    accel.getEvent(&event);
-   //Serial.print("X: "); 
+   //Serial.print("X: ");
    Serial.println(event.acceleration.y); //Serial.print("  ");
 //   Serial.print("Y: "); Serial.print(event.acceleration.y); Serial.print("  ");
 //   Serial.print("Z: "); Serial.print(event.acceleration.z); Serial.print("  ");
