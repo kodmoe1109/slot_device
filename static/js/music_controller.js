@@ -153,20 +153,20 @@ let cello1 = new Howl({
         $('#cello0').hide();
         $('#cello1').show();
         $('#cello2').hide();
-        // cello_anim1.play();
+        cello_anim1.play();
         $('#spotlight_Cello').fadeIn(800);
         setTimeout(() => { $('#spotlight_Cello').fadeOut(800); }, 2500)
     },
     onend: function () {
-        // cello_anim1.stop();
+        cello_anim1.stop();
         cello1.stop();
-        // cello_anim1.play();
+        cello_anim1.play();
         cello1.play();
         console.log('cello1 restart!!')
     },
     onstop: function () {
         cello_End_Result();
-        // cello_anim1.stop();
+        cello_anim1.stop();
     }
 });
 let cello2 = new Howl({
