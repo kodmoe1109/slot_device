@@ -7,7 +7,7 @@ const db = getDatabase();//firebase
 const connect_router = ref(db,'/')//firebase
 
 // const arduinoPort = 'COM4'
-const arduinoPort = '/dev/cu.usbmodem144201'
+const arduinoPort = '/dev/cu.usbmodem142201'
 const port = new SerialPort(arduinoPort, { bauRate: 9600 }, (err) => {
     if (err) {
         console.log('fail');

@@ -9,13 +9,13 @@ let celloCtrl2_enable = true;
 let drumCtrl_enable = true;
 let _rate = 1;
 let _volume = 0.5;
-let saxo_volume = 0.3;
+let saxo_volume = 0.5;
 
 // Howler.autoUnlock = false;
 //-----------------------------Piano-------------------------------
 let piano = new Howl({
     src: pianoArr[0],
-    autoplay: false,
+    autoplay: true,
     loop: true,
     volume: 0.8,
     rate: _rate,
