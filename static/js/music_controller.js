@@ -15,7 +15,7 @@ let saxo_volume = 0.5;
 //-----------------------------Piano-------------------------------
 let piano = new Howl({
     src: pianoArr[0],
-    autoplay: true,
+    autoplay: false,
     loop: true,
     volume: 0.8,
     rate: _rate,
@@ -199,18 +199,15 @@ let saxo0 = new Howl({
         console.log('saxo0 Load Ok')
     },
     onplay: function () {
+        saxoCtrl_enable = false;
         $('#spotlight_Saxo').fadeIn(800);
         saxo_anim.play();
     },
     onstop: function () {
-        saxoCtrl_enable = false;
         saxo_End_Result()
-        $('#spotlight_Saxo').fadeOut(300);
     },
     onend: function () {
-        saxoCtrl_enable = false;
-        // saxo_End_Result();
-        $('#spotlight_Saxo').fadeOut(300);
+        saxo_End_Result()
     }
 
 });//OK
@@ -224,18 +221,15 @@ let saxo1 = new Howl({
         console.log('saxo1 Load Ok')
     },
     onplay: function () {
+        saxoCtrl_enable = false;
         $('#spotlight_Saxo').fadeIn(800);
         saxo_anim.play();
     },
     onstop: function () {
-        saxoCtrl_enable = false;
         saxo_End_Result()
-        $('#spotlight_Saxo').fadeOut(300);
     },
     onend: function () {
-        saxoCtrl_enable = false;
         saxo_End_Result()
-        $('#spotlight_Saxo').fadeOut(300);
     }
 });//OK
 let saxo2 = new Howl({
@@ -248,18 +242,15 @@ let saxo2 = new Howl({
         console.log('saxo2 Load Ok')
     },
     onplay: function () {
+        saxoCtrl_enable = false;
         $('#spotlight_Saxo').fadeIn(800);
         saxo_anim.play();
     },
     onstop: function () {
-        saxoCtrl_enable = false;
         saxo_End_Result()
-        $('#spotlight_Saxo').fadeOut(300);
     },
     onend: function () {
-        saxoCtrl_enable = false;
         saxo_End_Result()
-        $('#spotlight_Saxo').fadeOut(300);
     }
 });//OK
 let saxo3 = new Howl({
@@ -272,18 +263,15 @@ let saxo3 = new Howl({
         console.log('saxo3 Load Ok')
     },
     onplay: function () {
+        saxoCtrl_enable = false;
         $('#spotlight_Saxo').fadeIn(800);
         saxo_anim.play();
     },
     onstop: function () {
-        saxoCtrl_enable = false;
         saxo_End_Result()
-        $('#spotlight_Saxo').fadeOut(300);
     },
     onend: function () {
-        saxoCtrl_enable = false;
         saxo_End_Result()
-        $('#spotlight_Saxo').fadeOut(300);
     }
 });//OK
 let saxo4 = new Howl({
@@ -296,44 +284,17 @@ let saxo4 = new Howl({
         console.log('saxo4 Load Ok')
     },
     onplay: function () {
+        saxoCtrl_enable = false;
         $('#spotlight_Saxo').fadeIn(800);
         saxo_anim.play();
     },
     onstop: function () {
-        saxoCtrl_enable = false;
         saxo_End_Result()
-        $('#spotlight_Saxo').fadeOut(300);
     },
     onend: function () {
-        saxoCtrl_enable = false;
         saxo_End_Result()
-        $('#spotlight_Saxo').fadeOut(300);
     }
 });//OK
-// let saxo5 = new Howl({
-//     src: saxoArr[5],
-//     autoplay: false,
-//     loop: false,
-//     volume: saxo_volume,
-//     rate: _rate,
-//     onload: function () {
-//         console.log('saxo5 Load Ok')
-//     },
-//     onplay: function () {
-//         $('#spotlight_Saxo').fadeIn(800);
-//         saxo_anim.play();
-//     },
-//     onstop: function () {
-//         saxoCtrl_enable = false;
-//         saxo_End_Result()
-//         $('#spotlight_Saxo').fadeOut(300);
-//     },
-//     onend: function () {
-//         saxoCtrl_enable = false;
-//         saxo_End_Result()
-//         $('#spotlight_Saxo').fadeOut(300);
-//     }
-// });//OK
 function cello_vol0(vol) {
     if (vol >= 0.3 && celloCtrl0_enable == true && celloCtrl1_enable == true && celloCtrl2_enable == true) {
         cello0.play();
@@ -390,28 +351,26 @@ function drum_vol(val) {
     }
 
 }//OK
-function saxo_vol(val) {
-    if (saxoCtrl_enable) {
+function saxo_vol(val) { 
         switch (val) {
             case 1:
-                saxo0.play();
+                if(saxoCtrl_enable){saxo0.play();}
                 break;
             case 2:
-                saxo1.play();
+                if(saxoCtrl_enable){saxo1.play();}
                 break;
             case 3:
-                saxo2.play();
+                if(saxoCtrl_enable){saxo2.play();}
                 break;
             case 4:
-                saxo3.play();
+                if(saxoCtrl_enable){saxo3.play();}
                 break;
             case 5:
-                saxo4.play();
+                if(saxoCtrl_enable){saxo4.play();}
                 break;
             default:
                 saxo_music_all_stop();
         }
-    }
 }//OK
 function drum_music_all_stop() {
     drum0.stop();
