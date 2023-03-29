@@ -21,6 +21,8 @@
         <div id="drum2"></div>
         <div id="piano"></div>
         <div id="cello0"></div>
+        <div id="cello1"></div>
+        <div id="cello2"></div>
         <div>
             <img id="spotlight_Cello" src="../static/spotlight_test.png" alt="">
             <img id="spotlight_Saxo" src="../static/spotlight_test.png" alt="">
@@ -121,6 +123,14 @@
         loop: true,
         autoplay: false,
         path: '../static/animate/cello/cello0.json',
+    })
+
+    const cello_anim2 = lottie.loadAnimation({
+        container: document.getElementById('cello2'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: false,
+        path: '../static/animate/cello/cello2.json',
     })
 
     window.onload = function () {

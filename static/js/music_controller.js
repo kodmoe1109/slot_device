@@ -121,6 +121,9 @@ let cello0 = new Howl({
         console.log('Cello0 Load Ok')
     },
     onplay: function () {
+        $('#cello0').show();
+        $('#cello1').hide();
+        $('#cello2').hide();
         cello_anim0.play();
         $('#spotlight_Cello').fadeIn(800);
         setTimeout(() => { $('#spotlight_Cello').fadeOut(800); }, 2500)
@@ -147,6 +150,9 @@ let cello1 = new Howl({
         console.log('Cello1 Load Ok')
     },
     onplay: function () {
+        $('#cello0').hide();
+        $('#cello1').show();
+        $('#cello2').hide();
         // cello_anim1.play();
         $('#spotlight_Cello').fadeIn(800);
         setTimeout(() => { $('#spotlight_Cello').fadeOut(800); }, 2500)
@@ -173,20 +179,23 @@ let cello2 = new Howl({
         console.log('Cello2 Load Ok')
     },
     onplay: function () {
-        // cello_anim2.play();
+        $('#cello0').hide();
+        $('#cello1').hide();
+        $('#cello2').show();
+        cello_anim2.play();
         $('#spotlight_Cello').fadeIn(800);
         setTimeout(() => { $('#spotlight_Cello').fadeOut(800); }, 2500)
     },
     onend: function () {
-        // cello_anim2.stop();
+        cello_anim2.stop();
         cello2.stop();
-        // cello_anim2.play();
+        cello_anim2.play();
         cello2.play();
         console.log('cello2 restart!!')
     },
     onstop: function () {
         cello_End_Result();
-        // cello_anim2.stop();
+        cello_anim2.stop();
     }
 });
 let saxo0 = new Howl({
@@ -292,7 +301,9 @@ let saxo4 = new Howl({
         saxo_End_Result()
     },
     onend: function () {
+        saxoCtrl_enable = false;
         saxo_End_Result()
+        $('#spotlight_Saxo').fadeOut(300);
     }
 });//OK
 function cello_vol0(vol) {
