@@ -15,7 +15,7 @@ let saxo_volume = 0.5;
 //-----------------------------Piano-------------------------------
 let piano = new Howl({
     src: pianoArr[0],
-    autoplay: false,
+    autoplay: true,
     loop: true,
     volume: 0.8,
     rate: _rate,

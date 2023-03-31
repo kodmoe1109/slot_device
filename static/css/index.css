@@ -47,7 +47,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    background-size: 905px;
+    background-size: 873px; /*展場使用873px*/
     background-image: url('../bg_img1.jpg');
     background-color: black;
 }
