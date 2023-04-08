@@ -1,5 +1,5 @@
 const pianoArr = ["../static/music/piano.wav"];
-const saxoArr = ["../static/music/do.wav", "../static/music/ra.wav", "../static/music/mi.wav", "../static/music/la.wav", "../static/music/so.wav", "../static/music/saxo2_5.wav",]
+const saxoArr = ["../static/music/do.wav", "../static/music/ra.wav", "../static/music/mi.wav", "../static/music/la.wav", "../static/music/so.wav"]
 const celloArr = ["../static/music/bass1.wav", "../static/music/bass2.wav", "../static/music/bass3.wav"]
 const drumArr = ["../static/music/drum1.wav", "../static/music/drum2.wav", "../static/music/drum3.wav"]
 let saxoCtrl_enable = true;
@@ -9,7 +9,8 @@ let celloCtrl2_enable = true;
 let drumCtrl_enable = true;
 let _rate = 1;
 let _volume = 0.5;
-let saxo_volume = 0.5;
+let saxo_volume = 0.55;
+let drum_volume = 0.6;
 
 // Howler.autoUnlock = false;
 //-----------------------------Piano-------------------------------
@@ -17,7 +18,7 @@ let piano = new Howl({
     src: pianoArr[0],
     autoplay: true,
     loop: true,
-    volume: 0.8,
+    volume: 0.6,
     rate: _rate,
     onload: function () {
         console.log('Piano Load Ok')
@@ -28,7 +29,7 @@ let drum0 = new Howl({
     src: drumArr[0],
     autoplay: false,
     loop: false,
-    volume: _volume,
+    volume: drum_volume,
     rate: _rate,
     onload: function () {
         console.log('Drum0 Load Ok')
@@ -57,7 +58,7 @@ let drum1 = new Howl({
     src: drumArr[1],
     autoplay: false,
     loop: false,
-    volume: _volume,
+    volume: drum_volume,
     rate: _rate,
     onload: function () {
         console.log('Drum1 Load Ok')
@@ -86,7 +87,7 @@ let drum2 = new Howl({
     src: drumArr[2],
     autoplay: false,
     loop: false,
-    volume: _volume,
+    volume: drum_volume,
     rate: _rate,
     onload: function () {
         console.log('Drum2 Load Ok')
@@ -115,7 +116,7 @@ let cello0 = new Howl({
     src: celloArr[0],
     autoplay: false,
     loop: false,
-    volume: 0.8,
+    volume: _volume,
     rate: _rate,
     onload: function () {
         console.log('Cello0 Load Ok')
@@ -126,6 +127,7 @@ let cello0 = new Howl({
         $('#cello2').hide();
         cello_anim0.play();
         $('#spotlight_Cello').fadeIn(800);
+        console.log('flash')
         setTimeout(() => { $('#spotlight_Cello').fadeOut(800); }, 2500)
     },
     onend: function () {
@@ -137,7 +139,7 @@ let cello0 = new Howl({
     },
     onstop: function () {
         cello_End_Result()
-        cello_anim0.stop();
+        cello_anim0.pause();
     }
 });
 let cello1 = new Howl({
@@ -166,7 +168,7 @@ let cello1 = new Howl({
     },
     onstop: function () {
         cello_End_Result();
-        cello_anim1.stop();
+        cello_anim1.pause();
     }
 });
 let cello2 = new Howl({
@@ -195,7 +197,7 @@ let cello2 = new Howl({
     },
     onstop: function () {
         cello_End_Result();
-        cello_anim2.stop();
+        cello_anim2.pause();
     }
 });
 let saxo0 = new Howl({
@@ -266,7 +268,7 @@ let saxo3 = new Howl({
     src: saxoArr[3],
     autoplay: false,
     loop: false,
-    volume: saxo_volume,
+    volume: 0.75,
     rate: _rate,
     onload: function () {
         console.log('saxo3 Load Ok')
@@ -287,7 +289,7 @@ let saxo4 = new Howl({
     src: saxoArr[4],
     autoplay: false,
     loop: false,
-    volume: saxo_volume,
+    volume: 0.75,
     rate: _rate,
     onload: function () {
         console.log('saxo4 Load Ok')
@@ -316,7 +318,7 @@ function cello_vol0(vol) {
         celloCtrl0_enable = true;
     }
     cello0.volume(vol);
-    console.log("0號可控制? "+ celloCtrl0_enable);
+    // console.log("0號可控制? "+ celloCtrl0_enable);
 }
 function cello_vol1(vol) {
     if (vol >= 0.3 && celloCtrl0_enable == true && celloCtrl1_enable == true && celloCtrl2_enable == true) {
@@ -328,7 +330,7 @@ function cello_vol1(vol) {
         celloCtrl1_enable = true;
     }
     cello1.volume(vol);
-    console.log("1號可控制? "+celloCtrl0_enable);
+    // console.log("1號可控制? "+celloCtrl0_enable);
 }
 function cello_vol2(vol) {
     if (vol >= 0.3 && celloCtrl0_enable == true && celloCtrl1_enable == true && celloCtrl2_enable == true) {
@@ -340,7 +342,7 @@ function cello_vol2(vol) {
         celloCtrl2_enable = true;
     }
     cello2.volume(vol);
-    console.log("2號可控制? "+celloCtrl0_enable);
+    // console.log("2號可控制? "+celloCtrl0_enable);
 }
 function drum_vol(val) {
     if (drumCtrl_enable) {
@@ -403,7 +405,7 @@ function cello_music_all_stop() {
 function saxo_End_Result() {
     $('#spotlight_Saxo').fadeOut(300);
     saxoCtrl_enable = true;
-    saxo_anim.pause();
+    saxo_anim.stop();
 }//OK
 function drum_End_Result() {
     $('#spotlight_Drum').fadeOut(300);

@@ -15,7 +15,7 @@ void loop() {
   int fsr_value2 = analogRead(fsr_pin2);
 //    Serial.println(fsr_value0);
 //    Serial.println(fsr_value1);
-//  Serial.println(fsr_value2);
+//    Serial.println(fsr_value2);
    if(fsr_value0>500){
       Serial.println(1);
       }
