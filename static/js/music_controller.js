@@ -122,12 +122,11 @@ let cello0 = new Howl({
         console.log('Cello0 Load Ok')
     },
     onplay: function () {
+        cello_anim0.play();
         $('#cello0').show();
         $('#cello1').hide();
         $('#cello2').hide();
-        cello_anim0.play();
         $('#spotlight_Cello').fadeIn(800);
-        console.log('flash')
         setTimeout(() => { $('#spotlight_Cello').fadeOut(800); }, 2500)
     },
     onend: function () {
@@ -139,7 +138,7 @@ let cello0 = new Howl({
     },
     onstop: function () {
         cello_End_Result()
-        cello_anim0.pause();
+        cello_anim0.stop();
     }
 });
 let cello1 = new Howl({
@@ -152,10 +151,10 @@ let cello1 = new Howl({
         console.log('Cello1 Load Ok')
     },
     onplay: function () {
+        cello_anim1.play();
         $('#cello0').hide();
         $('#cello1').show();
         $('#cello2').hide();
-        cello_anim1.play();
         $('#spotlight_Cello').fadeIn(800);
         setTimeout(() => { $('#spotlight_Cello').fadeOut(800); }, 2500)
     },
@@ -168,7 +167,7 @@ let cello1 = new Howl({
     },
     onstop: function () {
         cello_End_Result();
-        cello_anim1.pause();
+        cello_anim1.stop();
     }
 });
 let cello2 = new Howl({
@@ -181,10 +180,10 @@ let cello2 = new Howl({
         console.log('Cello2 Load Ok')
     },
     onplay: function () {
+        cello_anim2.play();
         $('#cello0').hide();
         $('#cello1').hide();
         $('#cello2').show();
-        cello_anim2.play();
         $('#spotlight_Cello').fadeIn(800);
         setTimeout(() => { $('#spotlight_Cello').fadeOut(800); }, 2500)
     },
@@ -197,7 +196,7 @@ let cello2 = new Howl({
     },
     onstop: function () {
         cello_End_Result();
-        cello_anim2.pause();
+        cello_anim2.stop();
     }
 });
 let saxo0 = new Howl({
@@ -309,7 +308,7 @@ let saxo4 = new Howl({
     }
 });//OK
 function cello_vol0(vol) {
-    if (vol >= 0.3 && celloCtrl0_enable == true && celloCtrl1_enable == true && celloCtrl2_enable == true) {
+    if (vol >= 0.4 && celloCtrl0_enable == true && celloCtrl1_enable == true && celloCtrl2_enable == true) {
         cello0.play();
         celloCtrl0_enable = false;
     }
@@ -317,11 +316,11 @@ function cello_vol0(vol) {
         cello0.stop();
         celloCtrl0_enable = true;
     }
-    cello0.volume(vol);
+    cello0.volume(vol-0.2);
     // console.log("0號可控制? "+ celloCtrl0_enable);
 }
 function cello_vol1(vol) {
-    if (vol >= 0.3 && celloCtrl0_enable == true && celloCtrl1_enable == true && celloCtrl2_enable == true) {
+    if (vol >= 0.4 && celloCtrl0_enable == true && celloCtrl1_enable == true && celloCtrl2_enable == true) {
         cello1.play();
         celloCtrl1_enable = false;
     }
@@ -329,11 +328,11 @@ function cello_vol1(vol) {
         cello1.stop();
         celloCtrl1_enable = true;
     }
-    cello1.volume(vol);
+    cello1.volume(vol-0.2);
     // console.log("1號可控制? "+celloCtrl0_enable);
 }
 function cello_vol2(vol) {
-    if (vol >= 0.3 && celloCtrl0_enable == true && celloCtrl1_enable == true && celloCtrl2_enable == true) {
+    if (vol >= 0.5 && celloCtrl0_enable == true && celloCtrl1_enable == true && celloCtrl2_enable == true) {
         cello2.play();
         celloCtrl2_enable = false;
     }
@@ -341,7 +340,7 @@ function cello_vol2(vol) {
         cello2.stop();
         celloCtrl2_enable = true;
     }
-    cello2.volume(vol);
+    cello2.volume(vol-0.2);
     // console.log("2號可控制? "+celloCtrl0_enable);
 }
 function drum_vol(val) {
@@ -405,7 +404,7 @@ function cello_music_all_stop() {
 function saxo_End_Result() {
     $('#spotlight_Saxo').fadeOut(300);
     saxoCtrl_enable = true;
-    saxo_anim.stop();
+    saxo_anim.pause();
 }//OK
 function drum_End_Result() {
     $('#spotlight_Drum').fadeOut(300);
