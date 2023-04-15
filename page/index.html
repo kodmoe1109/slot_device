@@ -63,6 +63,7 @@
     const router_cello1 = ref(db, "/cello_val1");
     const router_cello2 = ref(db, "/cello_val2");
     const router_drum = ref(db, "/drum_val");
+    const router_piano = ref(db, "/piano_val");
     onValue(router_saxo, (el) => {
         saxo_vol(el.val());
     })
@@ -77,6 +78,9 @@
     })
     onValue(router_drum, (el) => {
         drum_vol(el.val());
+    })
+    onValue(router_piano, (el) => {
+        piano_vol(el.val());
     })
 
 </script>

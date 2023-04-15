@@ -384,6 +384,9 @@ function saxo_vol(val) {
                 saxo_music_all_stop();
         }
 }//OK
+function piano_vol(val){
+    piano.volume(val);
+}
 function drum_music_all_stop() {
     drum0.stop();
     drum1.stop();
