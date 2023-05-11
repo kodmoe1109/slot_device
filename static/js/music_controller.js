@@ -1,4 +1,4 @@
-const pianoArr = ["../static/music/piano.wav"];
+const pianoArr = ["../static/music/piano_new.wav"];
 const saxoArr = ["../static/music/do.wav", "../static/music/ra.wav", "../static/music/mi.wav", "../static/music/la.wav", "../static/music/so.wav"]
 const celloArr = ["../static/music/bass1.wav", "../static/music/bass2.wav", "../static/music/bass3.wav"]
 const drumArr = ["../static/music/drum1.wav", "../static/music/drum2.wav", "../static/music/drum3.wav"]
