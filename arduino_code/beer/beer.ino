@@ -16,13 +16,13 @@ void loop() {
 //    Serial.println(fsr_value0);
 //    Serial.println(fsr_value1);
 //    Serial.println(fsr_value2);
-   if(fsr_value0>500){
+   if(fsr_value0>350){
       Serial.println(1);
       }
-   else if(fsr_value1>500){
+   else if(fsr_value1>350){
       Serial.println(2);
       }
-   else if(fsr_value2>500){
+   else if(fsr_value2>350){
       Serial.println(3);
       }
     else 

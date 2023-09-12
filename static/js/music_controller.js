@@ -9,8 +9,8 @@ let celloCtrl2_enable = true;
 let drumCtrl_enable = true;
 let _rate = 1;
 let _volume = 0.5;
-let saxo_volume = 0.55;
-let drum_volume = 0.6;
+let saxo_volume = 1;
+let drum_volume = 0.7;
 
 // Howler.autoUnlock = false;
 //-----------------------------Piano-------------------------------
@@ -40,7 +40,7 @@ let drum0 = new Howl({
         $('#drum1').hide();
         $('#drum2').hide();
         $('#spotlight_Drum').fadeIn(800);
-        setTimeout(() => { $('#spotlight_Drum').fadeOut(800); }, 2500)
+        setTimeout(() => { $('#spotlight_Drum').fadeOut(800); }, 800)
         drum_anim0.play();
     },
     onend: function () {
@@ -69,7 +69,7 @@ let drum1 = new Howl({
         $('#drum1').show();
         $('#drum2').hide();
         $('#spotlight_Drum').fadeIn(800);
-        setTimeout(() => { $('#spotlight_Drum').fadeOut(800); }, 2500)
+        setTimeout(() => { $('#spotlight_Drum').fadeOut(800); }, 800)
         drum_anim1.play();
     },
     onend: function () {
@@ -98,7 +98,7 @@ let drum2 = new Howl({
         $('#drum1').hide();
         $('#drum2').show();
         $('#spotlight_Drum').fadeIn(800);
-        setTimeout(() => { $('#spotlight_Drum').fadeOut(800); }, 2500)
+        setTimeout(() => { $('#spotlight_Drum').fadeOut(800); }, 800)
         drum_anim2.play();
     },
     onend: function () {
@@ -137,7 +137,7 @@ let cello0 = new Howl({
         console.log('cello0 restart!!')
     },
     onstop: function () {
-        cello_End_Result()
+        cello_End_Result();
         cello_anim0.stop();
     }
 });
@@ -316,7 +316,7 @@ function cello_vol0(vol) {
         cello0.stop();
         celloCtrl0_enable = true;
     }
-    cello0.volume(vol-0.2);
+    cello0.volume(vol);
     // console.log("0號可控制? "+ celloCtrl0_enable);
 }
 function cello_vol1(vol) {
@@ -328,7 +328,7 @@ function cello_vol1(vol) {
         cello1.stop();
         celloCtrl1_enable = true;
     }
-    cello1.volume(vol-0.2);
+    cello1.volume(vol);
     // console.log("1號可控制? "+celloCtrl0_enable);
 }
 function cello_vol2(vol) {
@@ -340,7 +340,7 @@ function cello_vol2(vol) {
         cello2.stop();
         celloCtrl2_enable = true;
     }
-    cello2.volume(vol-0.2);
+    cello2.volume(vol);
     // console.log("2號可控制? "+celloCtrl0_enable);
 }
 function drum_vol(val) {
@@ -401,14 +401,14 @@ function saxo_music_all_stop() {
 }//OK
 function cello_music_all_stop() {
     cello0.stop();
-    // cello1.stop();
-    // cello2.stop();
+    cello1.stop();
+    cello2.stop();
 }//OK
 function saxo_End_Result() {
     $('#spotlight_Saxo').fadeOut(300);
     saxoCtrl_enable = true;
     saxo_anim.pause();
-}//OK
+}//OKu
 function drum_End_Result() {
     $('#spotlight_Drum').fadeOut(300);
     drum_anim0.stop();
@@ -417,7 +417,7 @@ function drum_End_Result() {
     drumCtrl_enable = true;
 }//OK
 function cello_End_Result() {
-    $('#spotlight_Cello').fadeOut(300);
+    $('#spotlight_Cello').fadeOut(1500);
     // cello_anim0.stop();
     // cello_anim1.stop();
     // cello_anim2.stop();

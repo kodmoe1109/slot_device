@@ -17,28 +17,34 @@
     z-index: -4;
 }
 svg{
+    scale: 70%;
     position: absolute;
-    top: 0px;
+    top:100px;
     right : 0px;
 }
 #spotlight_Saxo{
+    scale: 43%;
     position:absolute;
-    top:0px;
-    right: -1325px;
+    top:-750px;
+    right: -830px;
+    /* right: -900px; */
     z-index: -9;
     /* display: none; */
 }
 #spotlight_Drum{
     position:absolute;
-    top:0px;
-    right: -950px;
+    scale: 42%;
+    top:-750px;
+    right: -430px;
+    /* right: -495px; */
     z-index: -7;
     /* display: none; */
 }
 #spotlight_Cello{
     position:absolute;
-    top:0px;
-    right: -1155px;
+    scale: 40%;
+    top:-750px;
+    right: -630px;
     z-index: 5;
     /* display: none; */
 }
@@ -47,7 +53,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    background-size: 867px; /*展場使用873px*/
+    background-size: 2000px; /*展場使用873px*/
     background-image: url('../bg_img1.jpg');
     background-color: black;
 }
